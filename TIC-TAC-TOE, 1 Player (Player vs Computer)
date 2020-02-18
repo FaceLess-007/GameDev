@@ -7,43 +7,64 @@ char arr[3][3];
 int a,pl,n=0,z=0;
 int flag=0;
 
-void check(int,int);
-void checkcomp(int,int);
+int check(int,int);
+int checkcomp(int,int);
 int ran();
 void player1();
 void player2();
 void display();
 int winner();
 
-void check(int a, int b)
+int check(int a, int b)
 {
     if(arr[a][b]=='X')
     {
         cout<<"Place is Already used By 'X'!\n";
         if(pl==1)
+        {
             player1();
+            return 0;
+        }
         else
+        {
             player2();
+            return 0;
+        }
     }
 
     if(arr[a][b]=='O')
     {
         cout<<"Place is Already used By 'O'!\n";
         if(pl==1)
+        {
             player1();
-        else
-            player2();
-    }
+            return 0;
+        }
 
+        else
+        {
+            player2();
+            return 0;
+        }
+    }
+    return 1;
 }
 
-void checkcomp(int a,int b)
+int checkcomp(int a,int b)
 {
-    if(arr[a][b]=='X' || arr[a][b]=='O')
+    if(arr[a][b]=='X')
     {
         flag=0;
         player2();
+        return 0;
     }
+    if(arr[a][b]=='O')
+    {
+        flag=0;
+        player2();
+        return 0;
+    }
+    return 1;
 }
 
 void player1()
@@ -55,40 +76,40 @@ void player1()
     switch(a)
     {
     case 1:
-        check(0,0);
-        arr[0][0]='X';
+        if(check(0,0))
+            arr[0][0]='X';
         break;
     case 2:
-        check(0,1);
-        arr[0][1]='X';
+        if(check(0,1))
+            arr[0][1]='X';
         break;
     case 3:
-        check(0,2);
-        arr[0][2]='X';
+        if(check(0,2))
+            arr[0][2]='X';
         break;
     case 4:
-        check(1,0);
-        arr[1][0]='X';
+        if(check(1,0))
+            arr[1][0]='X';
         break;
     case 5:
-        check(1,1);
-        arr[1][1]='X';
+        if(check(1,1))
+            arr[1][1]='X';
         break;
     case 6:
-        check(1,2);
-        arr[1][2]='X';
+        if(check(1,2))
+            arr[1][2]='X';
         break;
     case 7:
-        check(2,0);
-        arr[2][0]='X';
+        if(check(2,0))
+            arr[2][0]='X';
         break;
     case 8:
-        check(2,1);
-        arr[2][1]='X';
+        if(check(2,1))
+            arr[2][1]='X';
         break;
     case 9:
-        check(2,2);
-        arr[2][2]='X';
+        if(check(2,2))
+            arr[2][2]='X';
         break;
     default:
         cout<<"Please Enter correct input!";
@@ -119,6 +140,7 @@ randoms:
     {
         flag=1;
         a = ran();
+        cout<<a;
         goto putting;
     }
     else
@@ -359,40 +381,40 @@ putting:
     switch(a)
     {
     case 1:
-        checkcomp(0,0);
-        arr[0][0]='O';
+        if(checkcomp(0,0))
+            arr[0][0]='O';
         break;
     case 2:
-        checkcomp(0,1);
-        arr[0][1]='O';
+        if(checkcomp(0,1))
+            arr[0][1]='O';
         break;
     case 3:
-        checkcomp(0,2);
+        if(checkcomp(0,2))
         arr[0][2]='O';
         break;
     case 4:
-        checkcomp(1,0);
-        arr[1][0]='O';
+        if(checkcomp(1,0))
+            arr[1][0]='O';
         break;
     case 5:
-        checkcomp(1,1);
-        arr[1][1]='O';
+        if(checkcomp(1,1))
+            arr[1][1]='O';
         break;
     case 6:
-        checkcomp(1,2);
-        arr[1][2]='O';
+        if(checkcomp(1,2))
+            arr[1][2]='O';
         break;
     case 7:
-        checkcomp(2,0);
-        arr[2][0]='O';
+        if(checkcomp(2,0))
+            arr[2][0]='O';
         break;
     case 8:
-        checkcomp(2,1);
-        arr[2][1]='O';
+        if(checkcomp(2,1))
+            arr[2][1]='O';
         break;
     case 9:
-        checkcomp(2,2);
-        arr[2][2]='O';
+        if(checkcomp(2,2))
+            arr[2][2]='O';
         break;
     }
 ext:
